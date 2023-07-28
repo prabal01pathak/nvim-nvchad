@@ -106,6 +106,10 @@ local plugins = {
         lazy = false,
     },
     {
+        "wfxr/minimap.vim",
+        lazy = false,
+    },
+    {
         "tpope/vim-fugitive",
         lazy = false,
         config = function() 

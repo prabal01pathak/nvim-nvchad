@@ -4,6 +4,9 @@ local M = {}
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
+
+    -- toggle minimap
+    ["<leader>mm"] = { "<cmd> MinimapToggle <CR>", "Toggle Minimap" },
   },
 }
 

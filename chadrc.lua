@@ -6,7 +6,7 @@ local highlights = require "custom.highlights"
 
 M.ui = {
   theme = "oxocarbon",
-  theme_toggle = { "oxycarbon", "gatekeeper" },
+  theme_toggle = { "one_deep", "one_light" },
   transparency = true,
   hl_override = highlights.override,
   hl_add = highlights.add,

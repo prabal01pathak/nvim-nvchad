@@ -1,13 +1,13 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
-vim.keymap.set("n", "<leader>.t", vim.cmd.NvimTreeToggle)
-vim.keymap.set("n", "<leader>.T", vim.cmd.ToggleTermToggleAll)
-vim.keymap.set("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<cr>")
+-- vim.keymap.set("n", "<leader>.t", vim.cmd.NvimTreeToggle)
+-- vim.keymap.set("n", "<leader>.T", vim.cmd.ToggleTermToggleAll)
+-- vim.keymap.set("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<cr>")
 
-vim.keymap.set("n", "<leader>ty", ":ToggleTerm<CR>")
-vim.keymap.set("n", "<leader>tp", "<cmd>ToggleTerm cmd=fish direction=float<cr>")
-vim.keymap.set("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>")
+-- vim.keymap.set("n", "<leader>ty", ":ToggleTerm<CR>")
+-- vim.keymap.set("n", "<leader>tp", "<cmd>ToggleTerm cmd=fish direction=float<cr>")
+-- vim.keymap.set("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>")
 
 
 
