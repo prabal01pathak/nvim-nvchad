@@ -1,15 +1,15 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
 
   -- Override plugin definition options
-   {
+  {
     "rcarriga/nvim-dap-ui",
     dependencies = "mfussenegger/nvim-dap",
     config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
+      local dap = require "dap"
+      local dapui = require "dapui"
       dapui.setup()
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
@@ -20,15 +20,15 @@ local plugins = {
       dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
       end
-    end
+    end,
   },
-    {
+  {
     "mfussenegger/nvim-dap",
     config = function(_, opts)
-      require("core.utils").load_mappings("dap")
-    end
+      require("core.utils").load_mappings "dap"
+    end,
   },
-    {
+  {
     "mfussenegger/nvim-dap-python",
     ft = "python",
     dependencies = {
@@ -38,7 +38,7 @@ local plugins = {
     config = function(_, opts)
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
-      require("core.utils").load_mappings("dap_python")
+      require("core.utils").load_mappings "dap_python"
     end,
   },
 
@@ -62,7 +62,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
@@ -73,49 +73,59 @@ local plugins = {
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
-    -- config = function()  
+    -- config = function()
     --     require('nvim-tree').setup({view = {relativenumber = true}})
     -- end
   },
 
-    {
-        "ThePrimeagen/harpoon",
-        lazy = false,
-        config = function() 
-            print("Loaded the harpoon hahahahahaha :)")
-            require "custom.configs.harpoon"
-        end
-    },
-    {
-        "gen740/SmoothCursor.nvim",
-        lazy = false,
-        config = function()
-            require('smoothcursor').setup()
-            require "custom.configs.smoothcursor"
-        end
-    },
-    {
-        "folke/zen-mode.nvim",
-        lazy = false,
-        config = function()
-            require "custom.configs.zenmode"
-        end,
-    },
-    {
-        "github/copilot.vim",
-        lazy = false,
-    },
-    {
-        "wfxr/minimap.vim",
-        lazy = false,
-    },
-    {
-        "tpope/vim-fugitive",
-        lazy = false,
-        config = function() 
-            require("custom.configs.fugitive")
-        end
-    },
+  {
+    "ThePrimeagen/harpoon",
+    lazy = false,
+    config = function()
+      require "custom.configs.harpoon"
+    end,
+  },
+  {
+    "gen740/SmoothCursor.nvim",
+    lazy = false,
+    config = function()
+      require("smoothcursor").setup()
+      require "custom.configs.smoothcursor"
+    end,
+  },
+  {
+    "folke/zen-mode.nvim",
+    lazy = false,
+    config = function()
+      require "custom.configs.zenmode"
+    end,
+  },
+  {
+    "github/copilot.vim",
+    lazy = false,
+  },
+  {
+    "wfxr/minimap.vim",
+    lazy = false,
+  },
+  {
+    "tpope/vim-fugitive",
+    lazy = false,
+    config = function()
+      require "custom.configs.fugitive"
+    end,
+  },
+  {
+    "simrat39/rust-tools.nvim",
+    ft = "rust",
+    dependencies = "neovim/nvim-lspconfig",
+    opts = function()
+      return require "custom.configs.rust_tools"
+    end,
+    config = function(_, opts)
+      require("rust-tools").setup(opts)
+    end,
+  },
 
   -- Install a plugin
   {
@@ -131,13 +141,16 @@ local plugins = {
     event = "VeryLazy",
     config = true,
     dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "sharkdp/fd" },
-    keys = {{
-		"<leader>vs", "<cmd>:VenvSelect<cr>",
-		-- key mapping for directly retrieve from cache. You may set autocmd if you prefer the no hand approach
-		"<leader>vs", "<cmd>:VenvSelectCached<cr>"
-	}}
+    keys = {
+      {
+        "<leader>vs",
+        "<cmd>:VenvSelect<cr>",
+        -- key mapping for directly retrieve from cache. You may set autocmd if you prefer the no hand approach
+        "<leader>vs",
+        "<cmd>:VenvSelectCached<cr>",
+      },
+    },
   },
-
 
   -- To make a plugin not be loaded
   -- {

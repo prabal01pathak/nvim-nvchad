@@ -7,14 +7,23 @@ M.general = {
 
     -- toggle minimap
     ["<leader>mm"] = { "<cmd> MinimapToggle <CR>", "Toggle Minimap" },
+    ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "Find files" },
   },
 }
 
 M.dap = {
   plugin = true,
   n = {
-    ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>"}
-  }
+    ["<leader>dx"] = { "<cmd> DapToggleBreakpoint <CR>" },
+    ["<leader>dus"] = {
+      function()
+        local widgets = require "dap.ui.widgets"
+        local sidebar = widgets.sidebar(widgets.scopes)
+        sidebar.open()
+      end,
+      "Open debugging sidebar",
+    },
+  },
 }
 
 M.dap_python = {
@@ -22,12 +31,11 @@ M.dap_python = {
   n = {
     ["<leader>dpr"] = {
       function()
-        require('dap-python').test_method()
-      end
-    }
-  }
+        require("dap-python").test_method()
+      end,
+    },
+  },
 }
-
 
 -- more keybinds!
 
