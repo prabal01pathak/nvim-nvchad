@@ -5,6 +5,13 @@ local plugins = {
 
   -- Override plugin definition options
   {
+    "ThePrimeagen/harpoon",
+    lazy = false,
+    config = function(_, opts)
+      require("core.utils").load_mappings "harpoon"
+    end,
+  },
+  {
     "rcarriga/nvim-dap-ui",
     dependencies = "mfussenegger/nvim-dap",
     config = function()
@@ -79,13 +86,6 @@ local plugins = {
   },
 
   {
-    "ThePrimeagen/harpoon",
-    lazy = false,
-    config = function()
-      require "custom.configs.harpoon"
-    end,
-  },
-  {
     "gen740/SmoothCursor.nvim",
     lazy = false,
     config = function()
@@ -150,6 +150,19 @@ local plugins = {
         "<cmd>:VenvSelectCached<cr>",
       },
     },
+  },
+  {
+    "charludo/projectmgr.nvim",
+    lazy = false, -- important!
+    config = function()
+      require("projectmgr").setup {
+        autogit = {
+          enabled = false,
+          command = "git pull --ff-only > .git/fastforward.log 2>&1",
+        },
+        session = { enabled = true, file = ".git/Session.vim" },
+      }
+    end,
   },
 
   -- To make a plugin not be loaded
