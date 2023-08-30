@@ -119,10 +119,10 @@ local plugins = {
       require "custom.configs.zenmode"
     end,
   },
-  {
-    "github/copilot.vim",
-    lazy = false,
-  },
+  -- {
+  --   "github/copilot.vim",
+  --   lazy = false,
+  -- },
   {
     "wfxr/minimap.vim",
     lazy = false,
