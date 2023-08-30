@@ -12,6 +12,25 @@ local plugins = {
     end,
   },
   {
+    "kdheepak/lazygit.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("telescope").load_extension "lazygit"
+    end,
+  },
+  {
+    "alaviss/nim.nvim",
+    filetype = "nim",
+    lazy = false,
+    config = function(_, opts)
+      require("core.utils").load_mappings "harpoon"
+    end,
+  },
+  {
     "rcarriga/nvim-dap-ui",
     dependencies = "mfussenegger/nvim-dap",
     config = function()

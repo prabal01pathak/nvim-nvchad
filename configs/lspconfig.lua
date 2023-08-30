@@ -14,6 +14,7 @@ local servers = {
   "lua_ls",
   -- "rust_analyzer",
   "ruff_lsp",
+  -- "nimlangserver",
 }
 
 for _, lsp in ipairs(servers) do

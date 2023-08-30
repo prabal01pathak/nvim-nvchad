@@ -20,33 +20,33 @@ M.projects = {
 M.harpoon = {
   plugin = true,
   n = {
-    ["<leader>aa"] = {
+    ["<C-b>"] = {
       '<cmd>lua require("harpoon.mark").add_file() <CR>',
       "Add File in the harpoon menu",
     },
-    ["<leader>am"] = {
+    ["<C-e>"] = {
       '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>',
       "Toggle Harpoon menu",
     },
-    ["<leader>ah"] = {
+    ["<C-t>"] = {
       function()
         require("harpoon.ui").nav_file(1)
       end,
       "Select First file in the harpoon",
     },
-    ["<leader>al"] = {
+    ["<C-h>"] = {
       function()
         require("harpoon.ui").nav_file(2)
       end,
       "Select Second file in the harpoon",
     },
-    ["<leader>aj"] = {
+    ["<C-j>"] = {
       function()
         require("harpoon.ui").nav_file(3)
       end,
       "Select Third file in the harpoon",
     },
-    ["<leader>ak"] = {
+    ["<C-k>"] = {
       function()
         require("harpoon.ui").nav_file(4)
       end,
@@ -82,5 +82,14 @@ M.dap_python = {
 }
 
 -- more keybinds!
+-- M.lazygit = {
+--   plugin = true,
+--   n = {
+--     ["<leader>l"] = {
+--       "<cmd> LazyGit<CR>",
+--       "Open lazygit",
+--     },
+--   },
+-- }
 
 return M
